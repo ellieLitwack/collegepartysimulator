@@ -1,0 +1,123 @@
+<html>
+	<style>
+		.party {
+			display: block;
+			height: 50%;
+			max-width: 100%;
+			z-index: -1;
+		}
+		.button {
+			font-size : 20px; height: 130px; width: 130px; margin-top:15px;
+		}
+		.label {
+			float: left; LINE-HEIGHT:0px;
+		}
+		.counter{
+			margin-top:4px;margin-bottom:4px;margin-left:3px;
+		}
+	</style>
+	<body bgcolor="FFFFFF">
+	<h1>College Party Simulator 2020</h1>
+
+	<img id="main" src="composite.gif" alt="The Party" class="party" style="position:absolute">
+	<img id="bubble" alt="The Party" class="party" style="visibility:hidden">
+
+	<meta name="College Party Simulator" content="College Party Simulator 2020. Allows university students who can't party right now because of coronavirus to party virtually. You can play music, drink beer, and talk to the weird guy in the corner.">
+
+	<button onclick="drinkit()"class="button"style="float:left;">Take a Sip of Beer</button>
+	<button onclick="chitchat()"class="button">Talk to that Weird Guy in the Corner</button>
+	<button onclick="playaudio()"class="button"style="float:left;">Play Music</button>
+	
+	<br>
+	<p class="label">Number of sips of beer taken: </p>
+	<a href="https://www.hitwebcounter.com" target="_blank">
+	<img src="https://hitwebcounter.com/counter/counter.php?page=7652580&style=0006&nbdigits=8&type=page&initCount=0" title="User Stats" Alt="PHP Hits Count"   border="0" id="beercounter" class="counter">
+	</a>  
+	<br>
+	<p class="label">Number of times music has been played: </p>
+	<a href="https://www.hitwebcounter.com" target="_blank">
+	<img src="https://hitwebcounter.com/counter/counter.php?page=7652581&style=0006&nbdigits=8&type=page&initCount=0" title="User Stats" Alt="PHP Hits Count"   border="0" id="musiccounter"class="counter">
+	</a>  
+	<br>
+	<p class="label">Number of conversaitons with that weird guy in the corner: </p>
+	<a href="https://www.hitwebcounter.com" target="_blank">
+	<img src="https://hitwebcounter.com/counter/counter.php?page=7652582&style=0006&nbdigits=8&type=page&initCount=0" title="User Stats" Alt="PHP Hits Count"   border="0" id="talkcounter"class="counter">
+	</a> 
+	<br> 
+	</body>
+<script language="JavaScript1.2">
+if (screen.width <= 699) {
+	document.location = "mobile.html";
+}
+var party = document.getElementById("main");
+var beercounter = document.getElementById("beercounter");
+var musiccounter = document.getElementById("musiccounter");
+var talkcounter = document.getElementById("talkcounter");
+var bubble = document.getElementById("bubble");
+var drink = new Image();
+var talk = new Image();
+var audio = new Audio();
+var bubble1 = new Image();
+var bubble2 = new Image();
+var bubble3 = new Image();
+drink.src = "drink optimized.gif";
+talk.src = "talk optimized.gif";
+audio1.src = "riff.mp3";
+audio2.src = "riff2.mp3";
+audio3.src = "riff3.mp3";
+bubble1.src = "talk1.png";
+bubble2.src = "talk2.png";
+bubble3.src = "talk3.png";
+var hider;
+var num = 0;
+var num2 = 0;
+
+function drinkit()
+{
+	bubble.style.visibility = "hidden"
+	party.src = drink.src
+	var timestamp = new Date().getTime();  
+	beercounter.src = "https://hitwebcounter.com/counter/counter.php?page=7652580&style=0006&nbdigits=8&type=page&initCount=0&t=" + timestamp
+}
+
+function chitchat()
+{
+	num = num % 3
+	if (num == 0) {
+		bubble.src = bubble1.src;
+	} else if (num == 1) {
+		bubble.src = bubble2.src;
+	} else {
+		bubble.src = bubble3.src
+	}
+	num = num + 1
+	clearTimeout(hider)
+	bubble.style.visibility = "visible"
+	party.src = talk.src
+	hider = setTimeout(hidebubble, 11400)
+	var timestamp = new Date().getTime();  
+	talkcounter.src = "https://hitwebcounter.com/counter/counter.php?page=7652582&style=0006&nbdigits=8&type=page&initCount=0&t=" + timestamp
+}
+
+function hidebubble(){
+	bubble.style.visibility = "hidden";
+}
+
+function playaudio(){
+	num2 = num2 % 3
+	if (num2 == 0) {
+		bubble.src = bubble1.src;
+	} else if (num == 1) {
+		bubble.src = bubble2.src;
+	} else {
+		bubble.src = bubble3.src
+	}
+	num2 = num2 + 1
+	audio.play();
+	var timestamp = new Date().getTime();  
+	musiccounter.src = "https://hitwebcounter.com/counter/counter.php?page=7652581&style=0006&nbdigits=8&type=page&initCount=0" + timestamp
+}
+
+
+</script>
+</html>
