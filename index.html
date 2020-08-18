@@ -1,4 +1,16 @@
 <html>
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-175753985-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-175753985-2');
+</script>
+
+	</head>
 	<style>
 		.party {
 			display: block;
@@ -56,7 +68,9 @@ var talkcounter = document.getElementById("talkcounter");
 var bubble = document.getElementById("bubble");
 var drink = new Image();
 var talk = new Image();
-var audio = new Audio();
+var audio1 = new Audio();
+var audio2 = new Audio();
+var audio3 = new Audio();
 var bubble1 = new Image();
 var bubble2 = new Image();
 var bubble3 = new Image();
@@ -106,14 +120,13 @@ function hidebubble(){
 function playaudio(){
 	num2 = num2 % 3
 	if (num2 == 0) {
-		bubble.src = bubble1.src;
-	} else if (num == 1) {
-		bubble.src = bubble2.src;
+		audio1.play();
+	} else if (num2 == 1) {
+		audio2.play();
 	} else {
-		bubble.src = bubble3.src
+		audio3.play();
 	}
 	num2 = num2 + 1
-	audio.play();
 	var timestamp = new Date().getTime();  
 	musiccounter.src = "https://hitwebcounter.com/counter/counter.php?page=7652581&style=0006&nbdigits=8&type=page&initCount=0" + timestamp
 }
