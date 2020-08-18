@@ -116,17 +116,17 @@ function hidebubble(){
 
 function playaudio(){
 	num2 = num2 % 3
-	audio1.pause();
-	audio2.pause();
-	audio3.pause();
-	audio1.currentTime = 0;
-	audio2.currentTime = 0;
-	audio3.currentTime = 0;
 	if (num2 == 0) {
+		audio3.pause();
+		audio1.currentTime = 0;
 		audio1.play();
 	} else if (num2 == 1) {
+		audio1.pause();
+		audio2.currentTime = 0;
 		audio2.play();
 	} else {
+		audio2.pause();
+		audio3.currentTime = 0;
 		audio3.play();
 	}
 	num2 = num2 + 1
